@@ -28,7 +28,7 @@ public class MultiTimerApp {
         Timer t1 = new Timer();
         t1.scheduleAtFixedRate(new SoundTask(), 0, 2000);
 
-        // 2. Timer care rulează la o oră fixă (ex: 18:30)
+        // 2. Timer care rulează la o oră fixă (ex: 17:10)
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 17);
         calendar.set(Calendar.MINUTE, 10);
@@ -36,21 +36,7 @@ public class MultiTimerApp {
         Date oraFixata = calendar.getTime();
 
         Timer t2 = new Timer();
-        t2.schedule(new MessageTask("Este ora 18:30!"), oraFixata);
-
-        // 3. Timer care rulează la fiecare 5 secunde, timp de 20 secunde
-        Timer t3 = new Timer();
-        t3.scheduleAtFixedRate(new TimerTask() {
-            int counter = 0;
-            @Override
-            public void run() {
-                counter += 5;
-                System.out.println("Au trecut " + counter + " secunde");
-                if(counter >= 20) {
-                    System.out.println("Timerul s-a oprit.");
-                    this.cancel();
-                }
-            }
-        }, 0, 5000);
+        t2.schedule(new MessageTask("Este ora 17:10!"), oraFixata);
+       
     }
 }
